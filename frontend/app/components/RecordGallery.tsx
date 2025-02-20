@@ -3,7 +3,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { useState, useEffect } from "react";
 
 type Props = {
-  records: Song[];
+  records?: Song[];
   onSelectRecord: (record: Song) => void;
 };
 
@@ -42,8 +42,8 @@ const RecordGallery = ({ records, onSelectRecord }: Props) => {
       setApi={setApi}
     >
       <CarouselContent className="-ml-2 md:-ml-4">
-        {records.map((record, index) => (
-          <CarouselItem key={record.id} className="basis-1/4 pl-6">
+        {records? records.map((record, index) => (
+          <CarouselItem key={record.song_id} className="basis-1/4 pl-6">
             <div
               className="w-[250px] h-[250px] bg-sky-800 rounded-2xl shadow-lg overflow-hidden cursor-pointer relative group"
               onClick={() => onSelectRecord(record)}
@@ -51,7 +51,7 @@ const RecordGallery = ({ records, onSelectRecord }: Props) => {
               onMouseLeave={() => setHoveredRecord(null)}
             >
               <img
-                src={record.cover}
+                src={record.album_cover_url}
                 alt={record.title}
                 className={`w-full h-full object-cover transition duration-300 ease-in-out ${
                   hoveredRecord === record ? "blur-sm" : ""
@@ -65,7 +65,7 @@ const RecordGallery = ({ records, onSelectRecord }: Props) => {
               )}
             </div>
           </CarouselItem>
-        ))}
+        )) : <div>Loading ...</div>}
       </CarouselContent>
       <CarouselPrevious className="scale-150 bg-sky-950 font-bold text-orange-400 border-none hover:bg-orange-400 hover:text-sky-950 transition-all duration-300"/>
       <CarouselNext className="scale-150 bg-sky-950 font-bold text-orange-400 border-none hover:bg-orange-400 hover:text-sky-950 transition-all duration-300"/>

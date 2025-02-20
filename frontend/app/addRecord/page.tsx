@@ -7,16 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { post } from "@/utils/api"; 
 import { useSpotifySearch } from "@/hooks/useSpotifySearch"; 
-
-type ChordProgression = {
-  name: string;
-  chords: string[];
-};
-
-type StrummingPattern = {
-  name: string;
-  pattern: string;
-};
+import { ChordProgression, StrummingPattern } from "@/lib/types";
 
 const SongForm: React.FC = () => {
   const router = useRouter();
