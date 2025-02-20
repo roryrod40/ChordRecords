@@ -16,3 +16,4 @@ class Song(BaseModel):
     chords: List[ChordProgression]
     strumming_patterns: List[StrummingPattern]
     notes: Optional[str] = None
+    album_cover_url: Optional[str] = None

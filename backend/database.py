@@ -1,8 +1,5 @@
 import boto3
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # Use local DynamoDB endpoint
 DYNAMODB_ENDPOINT = os.getenv("DYNAMODB_ENDPOINT")

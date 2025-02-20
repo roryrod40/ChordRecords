@@ -19,9 +19,11 @@ const Navbar = () => {
       </NavigationMenu>
 
       {/* Add Record Button */}
-      <Button className="text-lg bg-orange-400 text-sky-950 font-semibold hover:bg-orange-500">
-        Add Record
-      </Button>
+      <Link href="/addRecord">
+        <Button className="text-lg bg-orange-400 text-sky-950 font-semibold hover:bg-orange-500">
+          Add Record
+        </Button>
+      </Link>
     </nav>
   );
 };

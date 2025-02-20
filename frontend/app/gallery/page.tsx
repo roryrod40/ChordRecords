@@ -2,9 +2,10 @@
 import { useState } from "react"
 import RecordGallery from "../components/RecordGallery"
 import CONSTANTS from "../../lib/mockData"
+import { Song } from "@/lib/types";
 
 export default function Gallery() {
-  const [currentRecord, setCurrentRecord] = useState(null);
+  const [currentRecord, setCurrentRecord] = useState<Song>();
 
   return (
     <div className="flex flex-col items-center p-10">
